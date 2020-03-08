@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using ReservationsApp.Data;
 using ReservationsApp.Models;
 
@@ -15,16 +16,20 @@ namespace ReservationsApp.Controllers
     public class ReservationController : ControllerBase
     {
         private readonly ReservationContext _context;
+        private readonly ILogger<ReservationController> _logger;
 
-        public ReservationController(ReservationContext context)
+        public ReservationController(ReservationContext context, ILogger<ReservationController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/Reservation
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
         {
+            _logger.LogInformation(nameof(GetReservations) + "(1) - Invoked...");
+
             return await _context.Reservations.ToListAsync();
         }
 
@@ -32,6 +37,8 @@ namespace ReservationsApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Reservation>> GetReservationById(int id)
         {
+            _logger.LogInformation(nameof(GetReservationById) + "(1) - Invoked...");
+
             var reservation = await _context.Reservations.FindAsync(id);
 
             if (reservation == null)
@@ -42,10 +49,14 @@ namespace ReservationsApp.Controllers
             return reservation;
         }
 
+
         // PUT: api/Reservation/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutReservation(int id, Reservation reservation)
         {
+            _logger.LogInformation(nameof(PutReservation) + "(1) - Invoked...");
+
+
             if (id != reservation.ReservationID)
             {
                 return BadRequest();
@@ -72,20 +83,27 @@ namespace ReservationsApp.Controllers
             return NoContent();
         }
 
+
         // POST: api/Reservation
         [HttpPost]
         public async Task<ActionResult<Reservation>> PostReservation(Reservation reservation)
         {
+            _logger.LogInformation(nameof(PostReservation) + "(1) - Invoked...");
+
             _context.Reservations.Add(reservation);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetReservationById", new { id = reservation.ReservationID }, reservation);
+            return CreatedAtAction(nameof(GetReservationById), new { id = reservation.ReservationID }, reservation);
         }
+
 
         // DELETE: api/Reservation/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Reservation>> DeleteReservation(int id)
         {
+            _logger.LogInformation(nameof(DeleteReservation) + "(1) - Invoked...");
+
+
             var reservation = await _context.Reservations.FindAsync(id);
             if (reservation == null)
             {
@@ -97,6 +115,7 @@ namespace ReservationsApp.Controllers
 
             return reservation;
         }
+
 
         private bool ReservationExists(int id)
         {
