@@ -1,9 +1,9 @@
-﻿using ReservationsApp.Models;
+﻿using ReservationsAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ReservationsApp.Data
+namespace ReservationsAPI.Data
 {
     public static class DbInitializer
     {

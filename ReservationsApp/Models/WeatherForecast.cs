@@ -1,6 +1,6 @@
 using System;
 
-namespace ReservationsApp
+namespace ReservationsAPI
 {
     public class WeatherForecast
     {

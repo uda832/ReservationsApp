@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using ReservationsApp.Data;
-using ReservationsApp.Models;
+using ReservationsAPI.Data;
+using ReservationsAPI.Models;
 
-namespace ReservationsApp.Controllers
+namespace ReservationsAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationsApp", "ReservationsApp\ReservationsApp.csproj", "{26EFDD64-8EB4-4538-9786-43679749DEC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReservationsAPI", "ReservationsApp\ReservationsAPI.csproj", "{26EFDD64-8EB4-4538-9786-43679749DEC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

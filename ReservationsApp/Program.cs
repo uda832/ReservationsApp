@@ -8,9 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
-using ReservationsApp.Data;
+using ReservationsAPI.Data;
 
-namespace ReservationsApp
+namespace ReservationsAPI
 {
     public class Program
     {

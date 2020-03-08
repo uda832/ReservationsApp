@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ReservationsApp.Controllers
+namespace ReservationsAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
