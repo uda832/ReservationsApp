@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ReservationsAPI.Data;
+using ReservationsAPI.Middlewares;
 
 namespace ReservationsAPI
 {
@@ -47,10 +48,17 @@ namespace ReservationsAPI
 
             app.UseAuthorization();
 
+            // Note: Middleware to handle "/HealthCheck" endpoint
+            //--------------------------------------------------
+            app.UseHealthCheck("DevServer", "ReservationAPI");
+            //--------------------------------------------------
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+
         }
     }
 }
